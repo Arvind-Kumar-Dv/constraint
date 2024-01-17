@@ -1,0 +1,12 @@
+class packet;
+  rand  bit [3:0] addr;
+endclass
+
+module top;
+packet p=new();
+  initial begin
+		p.randomize();
+    	$display("addr = %0d",p.addr);
+		end
+    
+endmodule

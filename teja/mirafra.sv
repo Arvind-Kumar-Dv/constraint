@@ -1,0 +1,45 @@
+class sample;
+rand int a,b,c;
+function void print();
+		c=a+b;
+$display("a=%0d,b=%0d,c=%0d",a,b,c);
+endfunction
+/*
+constraint c_1 {
+			a inside{[0:75]};
+			b inside{[0:75]};
+			a%2==0;
+			b%2==0;
+			c inside{[4 :148]};
+		}
+*/
+
+constraint c_1l {
+			a inside{[0:75]};
+			b inside{[0:75]};
+			a%2!=0;
+			b%2!=0;
+			c inside{[4 :148]};
+		}
+
+
+endclass
+
+module top;
+sample s;
+initial begin
+s=new();
+repeat(5) begin
+s.randomize();
+s.print();
+end
+end
+endmodule
+
+/*
+# a=68,b=52,c=120
+# a=2,b=26,c=28
+# a=36,b=40,c=76
+# a=4,b=64,c=68
+# a=52,b=54,c=106
+*/

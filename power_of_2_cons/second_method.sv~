@@ -1,0 +1,15 @@
+class sample;
+rand bit [5:0]a;
+constraint c1{a!=0; (a & (a-1))==0;}
+
+endclass
+
+module top;
+sample s=new();
+initial begin
+		repeat(10) begin
+			assert(s.randomize());
+			$display("a=%0d,a=%b",s.a,s.a);
+		end
+end
+endmodule
